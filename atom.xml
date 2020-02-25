@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-02-25T02:35:25.292Z</updated>
+  <updated>2020-02-25T02:39:59.348Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac frp 开机启动</title>
+    <link href="/2020/02/25/Mac-%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6/"/>
+    <id>/2020/02/25/Mac-启动文件/</id>
+    <published>2020-02-25T02:38:53.000Z</published>
+    <updated>2020-02-25T02:39:59.348Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code class=&quot;jsx&quot;&gt;~/Library/LaunchAgents 由用户自己定义的任务项
+/Library/LaunchAgents 由管理员为用户定义的任务项
+/Library/LaunchDaemons
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>在 macOS 上启用 DNSCrypt-Proxy</title>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">在 macOS 上启用 DNSCrypt-Proxy | iOS Dev</title>
+  <title itemprop="name">Mac frp 开机启动 | iOS Dev</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -366,7 +366,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      在 macOS 上启用 DNSCrypt-Proxy</h1>
+      Mac frp 开机启动</h1>
       <p class="entry-census">
         <span>
           <a href="blog.chaisz.xyz">
@@ -392,45 +392,34 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p><a href="https://www.v2ex.com/t/445199" target="_blank" rel="noopener">https://www.v2ex.com/t/445199</a></p>
-<p><a href="https://dnscrypt.info/" target="_blank" rel="noopener">DNSCrypt</a> 是一个由 Frank Denis 和 Yecheng Fu 设计的加密协议。目的在于加密客户端和 DNS 服务器端之间的通讯，以实现多种保护目的。比如防止 ISP 对 DNS 协议的恶意劫持，或者部分 DNS 服务对 NXDOMAIN 的劫持（对解析失败的域名跳转到广告页面）。</p>
-<p><a href="https://github.com/jedisct1/dnscrypt-proxy" target="_blank" rel="noopener">DNSCrypt-Proxy</a> 是 DNSCrypt 协议的一个实现，支持多种操作系统。本文描述的是如何在 macOS 上启用并进行一些必要的配置。</p>
-<h3 id="安装-DNSCrypt-Proxy"><a href="#安装-DNSCrypt-Proxy" class="headerlink" title="安装 DNSCrypt-Proxy"></a>安装 DNSCrypt-Proxy</h3><p>最简单的安装方式就是通过 Homebrew：</p>
-<pre><code>brew install dnscrypt-proxy
-</code></pre><h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>安装完成之后，先不要启动，打开下面这个文件，改动几个地方：</p>
-<pre><code>/usr/local/etc/dnscrypt-proxy.toml
-</code></pre><h3 id="启用应用日志"><a href="#启用应用日志" class="headerlink" title="启用应用日志"></a>启用应用日志</h3><p>如果 DNSCrypt-Proxy 本身遇到任何问题的时候，我们可以从应用自身的日志中看到。</p>
-<p>文件内搜索 <code>log_level</code> 然后修改这两行：</p>
-<pre><code>log_level = 0
-log_file = &#39;/usr/local/var/log/dnscrypt-proxy.log&#39;
-</code></pre><h3 id="启用查询日志"><a href="#启用查询日志" class="headerlink" title="启用查询日志"></a>启用查询日志</h3><p>查询日志在本地记录你的每一次 DNS 查询的时间、域名和查询类型。</p>
-<p>文件内搜索 <code>query_log</code>，然后将 file 那一行修改为：</p>
-<pre><code>file = &#39;/usr/local/var/log/query.log&#39;
-</code></pre><h3 id="启用-NX-日志"><a href="#启用-NX-日志" class="headerlink" title="启用 NX 日志"></a>启用 NX 日志</h3><p>NX 日志记录的那些不存在的域名的查询。通常，恶意软件，或者是没有正常工作的过时软件会发出这样的查询。</p>
-<p>文件内搜索 <code>nx_log</code>，然后将 file 那一行修改为：</p>
-<pre><code>file = &#39;/usr/local/var/log/nx.log&#39;
-</code></pre><h3 id="禁用系统提供的-DNS"><a href="#禁用系统提供的-DNS" class="headerlink" title="禁用系统提供的 DNS"></a>禁用系统提供的 DNS</h3><p>在任何情况下不使用操作系统自带的解析，在文件中搜索 <code>ignore_system_dns</code> 然后修改 <code>true</code>：</p>
-<pre><code>ignore_system_dns = true
-</code></pre><h3 id="启动和启用-DNSCrypt-Proxy"><a href="#启动和启用-DNSCrypt-Proxy" class="headerlink" title="启动和启用 DNSCrypt-Proxy"></a>启动和启用 DNSCrypt-Proxy</h3><p>DNSCrypt-Proxy 的启动稍微特殊的一点是，因为它需要监听在 53 端口，因此我们需要使用 <code>sudo</code> 来管理服务。</p>
-<p>启动 DNSCrypt-Proxy：</p>
-<pre><code>sudo brew services start dnscrypt-proxy
-</code></pre><p>如果服务正常启动了，那么在我们之前打开的 <code>dnscrypt-proxy.log</code> 中应该可以看到下面这行：</p>
-<pre><code>dnscrypt-proxy is ready
-</code></pre><p><img src="https://i.v2ex.co/k6wjzD4k.png" alt="img"></p>
-<p>然后你就可以在 macOS 的网络设置中将 DNS 设置为 <code>127.0.0.1</code> 了。然后访问几个你经常去的网站，就可以在之前打开的 <code>query.log</code> 中看到查询记录。</p>
-<p>如果在这样设置之后打开网站遇到问题，那么在 <code>dnscrypt-proxy.log</code> 日志文件中应该可以找到线索。</p>
-<h3 id="找出解析量最大的域名"><a href="#找出解析量最大的域名" class="headerlink" title="找出解析量最大的域名"></a>找出解析量最大的域名</h3><p>因为开启了 <code>query_log</code>，所以我们可以用下面这条指令找出解析量最大的域名：</p>
-<pre><code>cat query.log|awk -F$&#39;\t&#39; &#39;{print $3}&#39;|sort|uniq -c|sort -r|more
-</code></pre><p>而如果你有其他的分析工具，<code>query.log</code> 会是一个很有意思的数据源可以玩。</p>
-<p>你可以将 DNSCrypt-Proxy 运行在 Linux 服务器上，然后在 <code>resolv.conf</code> 中将 <code>nameserver</code> 设置为 <code>127.0.0.1</code>，这样的话也可以解决服务器上遇到的 DNS 劫持。</p>
-<p>第 1 条附言  · 2018-04-09 00:57:50 +08:00</p>
-<h3 id="使用-TextQL-查看查询量最大的域名"><a href="#使用-TextQL-查看查询量最大的域名" class="headerlink" title="使用 TextQL 查看查询量最大的域名"></a>使用 TextQL 查看查询量最大的域名</h3><p>TextQL 是一个用 Go 写的工具，可以在任意 CSV / TSV 文件上执行 SQL 查询。</p>
-<p><a href="https://github.com/dinedal/textql" target="_blank" rel="noopener">https://github.com/dinedal/textql</a></p>
-<p>这是用 TextQL 从 DNSCrypt-Proxy 的 TSV 格式的 query.log 中获得查询量最大的 10 个域名的例子：</p>
-<pre><code>textql -dlm=tab -sql &quot;select count(c2) as sum,c2 group by c2 order by sum desc limit 10&quot; -output-header query.log
-</code></pre><p>在 macOS 上 TextQL 可以直接通过 Homebrew 安装：</p>
-<pre><code>brew install textql
+          <pre><code class="jsx">~/Library/LaunchAgents 由用户自己定义的任务项
+/Library/LaunchAgents 由管理员为用户定义的任务项
+/Library/LaunchDaemons 由管理员定义的守护进程任务项
+/System/Library/LaunchAgents 由Mac OS X为用户定义的任务项
+/System/Library/LaunchDaemons 由Mac OS X定义的守护进程任务项
 </code></pre>
+<p>建议放在 ~/Library/LaunchAgents 下面。</p>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+  &lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;xyz.chaisz.frp&lt;/string&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;false/&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/Users/chaisz/.frp/frpc&lt;/string&gt;
+        &lt;string&gt;-c&lt;/string&gt;
+        &lt;string&gt;/Users/chaisz/.frp/frpc.ini&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><p>com.chaisz.frp.plist</p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -457,28 +446,11 @@ log_file = &#39;/usr/local/var/log/dnscrypt-proxy.log&#39;
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/02/25/Mac-启动文件/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Mac frp 开机启动</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2019/08/04/iOS安全/" rel="next">
+            <a href="/2020/02/25/在-macOS-上启用-DNSCrypt-Proxy/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
@@ -486,7 +458,7 @@ log_file = &#39;/usr/local/var/log/dnscrypt-proxy.log&#39;
               Next Post</span>
               <div class="info">
                 <h3>
-                iOS安全</h3>
+                在 macOS 上启用 DNSCrypt-Proxy</h3>
                 <hr>
               </div>
             </a>
