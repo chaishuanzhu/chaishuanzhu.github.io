@@ -71,22 +71,7 @@ index_widgets:
 # widget behavior
 archive_type: 'monthly'
 show_count: true
-
-# Fancybox
-fancybox: false
-
-# Search
-search:
-  insight: true # you need to install `hexo-generator-json-content` before using Insight Search
-
-
-# Share
-# weibo,qq,qzone,wechat,tencent,douban,diandian,facebook,twitter,google,linkedin
-share:
-  enable: true  # 是否启用分享
-  sites: weibo,qq,wechat,facebook,twitter  # PC端显示的分享图标
-  mobile_sites: weibo,qq,qzone  # 移动端显示的分享图标
-        
+  
 # wordcount
 postCount:
   enable: true
@@ -95,15 +80,6 @@ postCount:
   
 # profile
 profile:
-  enabled: false # Whether to show profile bar
-  articleSelfBlock: false # 关闭文章下方的自我介绍
-  avatar: images/avatar.jpg
-  gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
-  author: 飞鱼
-  author_title: iOS 开发
-  author_description: 个人简介。
-  location: HangZhou, China
-  follow: https://github.com/chaishuanzhu
   # Social Links
   social:
     links:
