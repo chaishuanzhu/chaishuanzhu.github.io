@@ -8723,10 +8723,6 @@ body.okayNav-loaded {
     display: none !important;
   }
 
-  body {
-    padding-top: 53px;
-  }
-
   .list-circle-num,
   .list-square-num {
     margin: 0 0 40px;
