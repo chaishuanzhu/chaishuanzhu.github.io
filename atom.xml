@@ -6,7 +6,7 @@
   <link href="https://blog.chaisz.com/atom.xml" rel="self"/>
   
   <link href="https://blog.chaisz.com/"/>
-  <updated>2022-12-02T07:43:04.588Z</updated>
+  <updated>2022-12-02T07:59:07.424Z</updated>
   <id>https://blog.chaisz.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.chaisz.com/2022/11/30/%E5%9B%BE/"/>
     <id>https://blog.chaisz.com/2022/11/30/%E5%9B%BE/</id>
     <published>2022-11-30T16:53:17.000Z</published>
-    <updated>2022-12-02T07:43:04.588Z</updated>
+    <updated>2022-12-02T07:59:07.424Z</updated>
     
     
     
@@ -38,7 +38,7 @@
     <link href="https://blog.chaisz.com/2022/11/30/%E6%A0%91/"/>
     <id>https://blog.chaisz.com/2022/11/30/%E6%A0%91/</id>
     <published>2022-11-30T16:53:11.000Z</published>
-    <updated>2022-12-02T07:43:04.588Z</updated>
+    <updated>2022-12-02T07:59:07.424Z</updated>
     
     
     
@@ -65,7 +65,7 @@
     <link href="https://blog.chaisz.com/2022/11/30/%E9%98%9F%E5%88%97/"/>
     <id>https://blog.chaisz.com/2022/11/30/%E9%98%9F%E5%88%97/</id>
     <published>2022-11-30T16:52:45.000Z</published>
-    <updated>2022-12-02T07:43:04.588Z</updated>
+    <updated>2022-12-02T07:59:07.424Z</updated>
     
     
     
@@ -82,7 +82,7 @@
     <link href="https://blog.chaisz.com/2022/11/30/%E6%A0%88/"/>
     <id>https://blog.chaisz.com/2022/11/30/%E6%A0%88/</id>
     <published>2022-11-30T16:52:26.000Z</published>
-    <updated>2022-12-02T07:43:04.588Z</updated>
+    <updated>2022-12-02T07:59:07.424Z</updated>
     
     
     
@@ -99,7 +99,7 @@
     <link href="https://blog.chaisz.com/2022/11/30/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
     <id>https://blog.chaisz.com/2022/11/30/%E7%BA%BF%E6%80%A7%E8%A1%A8/</id>
     <published>2022-11-30T16:52:07.000Z</published>
-    <updated>2022-12-02T07:43:04.588Z</updated>
+    <updated>2022-12-02T07:59:07.424Z</updated>
     
     <content type="html"><![CDATA[<h2 id="线性表定义"><a href="#线性表定义" class="headerlink" title="线性表定义"></a>线性表定义</h2><p>线性表是一种线性数据结构，其特点是数据元素之间存在“一对一”的关系。在一个线性表中每个数据元素的类型都是相通的，即线性表是由同一类型的数据元素构成的线性结构。</p>]]></content>
     
