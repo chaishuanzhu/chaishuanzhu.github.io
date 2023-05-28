@@ -65,7 +65,16 @@
   </url>
   
   <url>
-    <loc>https://blog.chaisz.com/2023/05/28/Docker%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://blog.chaisz.com/2022/11/30/%E5%9B%BE/</loc>
+    
+    <lastmod>2023-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chaisz.com/2023/05/28/%E5%9C%A8%E4%B8%8D%E5%8F%97%E6%94%AF%E6%8C%81%E7%9A%84Mac%E4%B8%8A%E5%AE%89%E8%A3%85macOS-Ventura/</loc>
     
     <lastmod>2023-05-28</lastmod>
     
@@ -110,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://blog.chaisz.com/2022/11/30/%E5%9B%BE/</loc>
+    <loc>https://blog.chaisz.com/2023/05/28/Docker%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2023-05-28</lastmod>
     
@@ -119,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://blog.chaisz.com/2023/05/28/%E5%9C%A8%E4%B8%8D%E5%8F%97%E6%94%AF%E6%8C%81%E7%9A%84Mac%E4%B8%8A%E5%AE%89%E8%A3%85macOS-Ventura/</loc>
+    <loc>https://blog.chaisz.com/2023/05/28/iOS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2023-05-28</lastmod>
     
@@ -146,7 +155,7 @@
 
   
   <url>
-    <loc>https://blog.chaisz.com/tags/%E5%9B%BE/</loc>
+    <loc>https://blog.chaisz.com/tags/Docker/</loc>
     <lastmod>2023-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -154,6 +163,20 @@
   
   <url>
     <loc>https://blog.chaisz.com/tags/macOS/</loc>
+    <lastmod>2023-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chaisz.com/tags/iOS/</loc>
+    <lastmod>2023-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chaisz.com/tags/%E5%9B%BE/</loc>
     <lastmod>2023-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
